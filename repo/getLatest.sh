@@ -28,7 +28,7 @@ echo -e "\n[${P}pBind${NC}]\n  v$installed"
 rm "$tmpfile"
 
 if [ -z "$latest" ]; then
-        echo -e " [${R}error${NC}]\n  ${}retry.\n"
+        echo -e " [${R}error${NC}]\n  retry.\n"
         bash /home/server/pBind/repo/getLatest.sh
         exit 1
 fi
