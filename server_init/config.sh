@@ -16,3 +16,7 @@ echo [Typescript]
 npm install -g typescript
 echo [Sass]
 npm install -g sass
+
+chown -R tech /home/server/
+chmod -R 770 /home/server/
+chmod -R 110 /home/server/pBind
