@@ -26,4 +26,4 @@ chown -R tech /home/server/
 chmod -R 770 /home/server/
 
 bash /home/server/pBind/configurations/welcome.sh
-bash /home/server/pBind/configurations/config.sh
+bash /home/server/pBind/configurations/cleanup.sh
