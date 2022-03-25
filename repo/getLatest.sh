@@ -24,7 +24,7 @@ curl -s -o "$tmpfile" $url
 getValFromJson $key $tmpfile
 latest="$jsonVal"
 
-echo -e "\n[${P}pBind${NC}]\n  -v$installed"
+echo -e "\n[${P}pBind${NC}]\n  v$installed"
 rm "$tmpfile"
 
 if [ -z "$latest" ]; then
