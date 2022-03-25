@@ -1,7 +1,7 @@
 #!/bin/bash
 #curl -s "https://raw.githubusercontent.com/pBielli/pBind/master/repo/info.json" .checkInfos
 
-getValFromJson () {
+function  getValFromJson () {
 return $(grep -o '"$1":"[^"]*' $2 | grep -o '[^"]*$')
 } | 
 key="version"
