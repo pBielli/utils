@@ -48,9 +48,9 @@ then
     # do dangerous stuff
     echo -n " start updating."
     sleep 0.1
-    echo "."
+    echo -n "."
 	sleep 0.1
-    echo ". "
+    echo -n ". "
 	sleep 0.2
 	
     echo -e "${G}started.${NC}"
