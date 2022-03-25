@@ -18,13 +18,13 @@ installed="$jsonVal"
 
 tmpfile='/home/server/pBind/repo/.TMP_info.json'
 #TEST:
-url="https://raw.githubusercontent.com/pBielli/pBind/master/repo/fakeinfo.json"
-#url="https://raw.githubusercontent.com/pBielli/pBind/master/repo/info.json"
+#url="https://raw.githubusercontent.com/pBielli/pBind/master/repo/fakeinfo.json"
+url="https://raw.githubusercontent.com/pBielli/pBind/master/repo/info.json"
 curl -s -o "$tmpfile" $url
 getValFromJson $key $tmpfile
 latest="$jsonVal"
 
-echo -e "\n[${W}pBind${NC}]\n  -v$installed"
+echo -e "\n[${P}pBind${NC}]\n  -v$installed"
 rm "$tmpfile"
 
 if [ -z "$latest" ]; then
@@ -40,13 +40,19 @@ else
     echo -e " There is a new version:${C}$latest${NC}"
 fi
 
-read -p -e " ${W}Start update?${NC}(Y/n)" -n 1 -r
+echo -ne " ${W}Start update?${NC}"
+read -p "(Y/n)" -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     # do dangerous stuff
-    echo -n " start updating"
-    sleep 0.4
+    echo -n " start updating."
+    sleep 0.1
+    echo "."
+	sleep 0.1
+    echo ". "
+	sleep 0.2
+	
     echo -e "${G}started.${NC}"
     /home/server/pBind/repo/update.sh
 fi
