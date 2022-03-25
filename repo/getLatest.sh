@@ -53,6 +53,6 @@ then
     echo -n ". "
 	sleep 0.2
 	
-    echo -e "${G}started.${NC}"
+    echo -e "${G}started${NC}.\n"
     /home/server/pBind/repo/update.sh
 fi
