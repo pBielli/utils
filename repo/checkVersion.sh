@@ -1,9 +1,9 @@
 #!/bin/bash
 #curl -s "https://raw.githubusercontent.com/pBielli/pBind/master/repo/info.json" .checkInfos
 
-function  getValFromJson () {
+function getValFromJson () {
 return $(grep -o '"$1":"[^"]*' $2 | grep -o '[^"]*$')
-} | 
+}
 key="version"
 val=$(getValFromJson ${key} /home/server/pBind/repo/info.json)
 echo "actual:${val}"
