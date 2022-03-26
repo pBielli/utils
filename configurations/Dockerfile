@@ -2,7 +2,9 @@
 
 FROM ubuntu:20.04
 WORKDIR /home/server
-EXPOSE 4000-4100
+EXPOSE 4000-4100/tcp
+EXPOSE 4000-4100/udp
+
 #CMD bash /home/server/pBind/startup.sh
 
 # Create Folder
