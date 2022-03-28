@@ -4,4 +4,7 @@ if [ $# -eq 1 ];then
 else
 	URL="https://raw.githubusercontent.com/${2}/master/${1}"
 fi
-curl -s $URL | bash
+FILE="$(basename $URL)"
+curl -s -o $FILE $URL 
+bash $FILE 
+rm $FILE 
