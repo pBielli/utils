@@ -2,7 +2,9 @@
 
 FROM ubuntu:20.04
 WORKDIR /home/server
-EXPOSE 4000-4100
+EXPOSE 4000-4100/tcp
+EXPOSE 4000-4100/udp
+
 #CMD bash /home/server/pBind/startup.sh
 
 # Create Folder
@@ -15,5 +17,6 @@ RUN curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash - && \
 apt-get install -y nodejs
 
 #Git Clone necessary files and apply config
-RUN git clone https://github.com/pBielli/Dk_container.git /home/server/pBind && \
-bash /home/server/pBind/configurations/setup.sh
+#RUN git clone https://github.com/pBielli/Dk_container.git /home/server/pBind && \
+#bash /home/server/pBind/configurations/setup.sh
+RUN curl  | bash 

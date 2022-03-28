@@ -1,0 +1,24 @@
+PBIND:
+versions
+ - get.sh
+ - add.sh  | PRIVATE
+ - list.json
+ - list
+    -- 1.0 | Dir
+    -- 1.1
+       --- info.json
+       --- INSTALLER
+           ---- setup.sh
+           ---- DOCKER
+                  ----- init.sh
+                  ----- Dockerfile
+           ---- MACHINE
+                  ----- ubuntu.sh
+       --- UTILS(ex repo)
+           ---- cloudrun.sh
+           ---- update.sh (alternative of directly recall cloudrun "versions.get.sh")
+           ---- INCLUDES | Dir
+
+       --- APP MANAGER
+           ---- start.sh
+           ---- new.sh
