@@ -1,7 +1,9 @@
 #!/bin/bash
+apt-get install jq -y
+apt-get install subversion -y
 
 function getVersion () {
-curl https://raw.githubusercontent.com/pBielli/pBind/master/versions/list.json | jq -c ".versions[] | select( .name==\"$1\").version"
+curl https://raw.githubusercontent.com/pBielli/pBind/master/versions/list.json | jq -c ".[] | select( .name==\"$1\").version"
 }
 
 
