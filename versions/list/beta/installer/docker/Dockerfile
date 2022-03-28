@@ -18,9 +18,5 @@ apt-get install -y nodejs
 
 #Git Clone necessary files and apply config
 #RUN git clone https://github.com/pBielli/Dk_container.git /home/server/pBind && \
-<<<<<<< HEAD:versions/list/beta/installer/docker/Dockerfile
 #bash /home/server/pBind/configurations/setup.sh
-=======
-#bash /home/server/pBind/configurations/setup.sh
-RUN curl  | bash 
->>>>>>> 7b31c7c5cbd1363599a421ae4a3d41d715b27106:configurations/Dockerfile
+#RUN curl  | bash
