@@ -79,7 +79,7 @@ echo "VERSION:${VERSION}"
 source /etc/environment
 
 #else, or after it, download the repo
-svn export https://github.com/pBielli/pBind/trunk/versions/list/$VERSION $PBIND_PATH
+svn export "https://github.com/pBielli/pBind/trunk/versions/list/$VERSION" "/home/server/pBind"
 
 if [ -z ${PBIND_PATH+x}];then
 #unset, so install it completelly
