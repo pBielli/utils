@@ -78,9 +78,12 @@ echo "VERSION:${VERSION}"
 ##################################################################################
 source /etc/environment
 
-rm -rf "/home/server/pBind"
+rm -r -f "/home/server/pBind"
 #else, or after it, download the repo
 svn export "https://github.com/pBielli/pBind/trunk/versions/list/$VERSION" "/home/server/pBind"
+if ! [ -d "/home/server/pBind" ];then
+exit 1
+fi
 
 if [ -z ${PBIND_PATH+x} ];then
 #unset, so install it completelly
