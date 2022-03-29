@@ -1,4 +1,8 @@
 #!/bin/bash
 function getValFromJson () {
-jsonVal=$(grep -o "\"${1}\":\"[^\"]*" $2 | grep -o '[^"]*$')
+QUERY=".[] | select( .name==\"${2}\")"
+if [ $# -eq 3 ];then
+QUERY="${QUERY}.${3}"
+fi
+$1 | jq -c "$QUERY"
 }

@@ -1,7 +1,6 @@
 #!/bin/bash
 source /etc/environment
 
-
 chown -R tech $(dirname $PBIND_PATH)
 chmod -R 770 $(dirname $PBIND_PATH)
 chmod -R 110 $PBIND_PATH

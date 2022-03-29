@@ -12,7 +12,7 @@ local_enable=YES
 listen_port=${FTP_PORT}" >> /etc/vsftpd.conf
 echo "#INJECTED CONFIGURATIONS
 port=${SSH_PORT}
-AllowUsers tech">> /etc/ssh/sshd_config
+AllowUsers tech" >> /etc/ssh/sshd_config
 
 #Install Node Resources
 npm install npm -g 
@@ -27,6 +27,4 @@ npm install -g sass
 #Setup PBIND_PATH
 echo -e "\nPBIND_PATH=/home/server/pBind" >> /etc/environment
 
-
 bash /home/server/pBind/configurations/welcome.sh
-bash /home/server/pBind/configurations/purge.sh
