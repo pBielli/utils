@@ -77,11 +77,11 @@ echo "VERSION:${VERSION}"
 
 ##################################################################################
 source /etc/environment
-
-rm -r -f "/home/server/pBind"
+PBIND=/home/server/pBind
+rm -r -f "${PBIND}"
 #else, or after it, download the repo
-svn export "https://github.com/pBielli/pBind/trunk/versions/list/$VERSION" "/home/server/pBind"
-if ! [ -d "/home/server/pBind" ];then
+svn export "https://github.com/pBielli/pBind/trunk/versions/list/$VERSION" "${PBIND}"
+if ! [ -d "${PBIND}" ];then
 exit 1
 fi
 
