@@ -1,10 +1,14 @@
 #!/bin/bash
-apt-get install jq -y
-apt-get install subversion -y
+#apt-get install jq -y
+#apt-get install subversion -y
 
 #Graphic Functions
-function hr () {echo -e "  ______________________\n"}
-function list_el () {echo -e "  [$1] $2"}
+function hr () { 
+echo -e "  ______________________\n" 
+}
+function list_el () {
+echo -e "  [$1] $2"
+}
 
 #Logic functions
 function getVersion () {
