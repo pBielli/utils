@@ -26,5 +26,5 @@ npm install -g sass
 
 #Setup PBIND_PATH
 echo -e "\nPBIND_PATH=/home/server/pBind" >> /etc/environment
-
+mkdir -p /home/server/apps
 bash /home/server/pBind/configurations/welcome.sh
