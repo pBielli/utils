@@ -81,7 +81,7 @@ source /etc/environment
 #else, or after it, download the repo
 svn export "https://github.com/pBielli/pBind/trunk/versions/list/$VERSION" "/home/server/pBind"
 
-if [ -z ${PBIND_PATH+x}];then
+if [ -z ${PBIND_PATH+x} ];then
 #unset, so install it completelly
         bash $(find "pBind/" -name "install.sh")
         bash $(find "pBind/" -name "setup.sh")
