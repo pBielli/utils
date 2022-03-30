@@ -23,8 +23,32 @@ npm install -g typescript
 echo [Sass]
 npm install -g sass
 
+enviroment=/etc/environment
+tech_p=/home/tech/.profile
+root_p=/root/.profile
+ssh_config=/root/.profile
+root_p=/root/.profile
+PBIND_PATH=/home/server/pBind
 
-#Setup PBIND_PATH
-echo -e "\nPBIND_PATH=/home/server/pBind" >> /etc/environment
-mkdir -p /home/server/apps
-bash /home/server/pBind/configurations/welcome.sh
+onload_code="\n#INJECTED CODE - pBind
+source /etc/environment
+pBind welcome
+"
+mkdir $PBIND_PATH/.bak
+cp enviroment $PBIND_PATH/.bak/
+cp tech_p $PBIND_PATH/.bak/
+cp root_p $PBIND_PATH/.bak/
+
+#Setup PBIND_PATH and pBind command
+echo -e "\n#INJECTED CODE - pBind
+PBIND_PATH=$PBIND_PATH
+function pBind  {
+bash \$PBIND_PATH/run.sh $@
+}" >> $enviroment
+
+#Setup including bash command on login
+echo -e "${onload_code}" >> tech_p
+echo -e "${onload_code}" >> root_p
+
+mkdir -p $(dirname $PBIND_PATH)/apps
+bash $PBIND_PATH/configurations/welcome.sh
