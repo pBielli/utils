@@ -44,7 +44,7 @@ function list_el () {
 echo -e "  [$1] ${BWhite}${2}${NC}"
 }
 function prompt () {
-read -p "  ${BWhite}${1}${NC}: " INPUT
+read -p "  ${1}: " INPUT
 echo $INPUT
 }
 
@@ -115,7 +115,6 @@ fi
 
 success "selected version: v${VERSION}"
 
-##################################################################################
 source /etc/environment
 PBIND=/home/server/pBind
 
