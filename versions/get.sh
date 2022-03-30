@@ -44,8 +44,7 @@ function list_el () {
 echo -e "  [$1] ${BWhite}${2}${NC}"
 }
 function prompt () {
-echo "  ${BWhite}${1}${NC}"
-read -p ": " INPUT
+read -p "  ${BWhite}${1}${NC}: " INPUT
 echo $INPUT
 }
 
