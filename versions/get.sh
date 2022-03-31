@@ -126,7 +126,7 @@ fi
 
 success "selected version: v${VERSION}"
 
-source /etc/environment
+#source /etc/pBind/environment
 PBIND=/home/server/pBind
 
 warning "proceed to setup enviroment"

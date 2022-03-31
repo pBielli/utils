@@ -1,6 +1,17 @@
 #!/bin/bash
+
+ssh_config=/etc/ssh/sshd_config
+ftp_config=/etc/vsftpd.conf
+enviroment=/etc/pBind/environment
+tech_p=/home/tech/.profile
+root_p=/root/.profile
+PBIND_PATH=/home/server/pBind
+backups=( ssh_config ftp_config tech_p root_p )
 FTP_PORT=4021
 SSH_PORT=4022
+
+source $PBIND_PATH/utils/includes/functions.sh
+
 #Create new First User
 adduser --disabled-password --gecos "" tech
 usermod -aG sudo tech
@@ -9,37 +20,47 @@ usermod -aG sudo tech
 echo "#INJECTED CONFIGURATIONS
 local_root=/home/server
 local_enable=YES
-listen_port=${FTP_PORT}" >> /etc/vsftpd.conf
+listen_port=${FTP_PORT}" >> $ftp_config
 echo "#INJECTED CONFIGURATIONS
 port=${SSH_PORT}
-AllowUsers tech" >> /etc/ssh/sshd_config
+AllowUsers tech" >> $ssh_config
 
 #Install Node Resources
+title "Install Node Resources"
 npm install npm -g 
-echo [React]
+warning "React"
 npm install -g create-react-app
-echo [Typescript]
+warning "Typescript"
 npm install -g typescript
-echo [Sass]
+warning "Sass"
 npm install -g sass
-
-enviroment=/etc/environment
-tech_p=/home/tech/.profile
-root_p=/root/.profile
-ssh_config=/root/.profile
-root_p=/root/.profile
-PBIND_PATH=/home/server/pBind
+success "complete"
 
 onload_code="\n#INJECTED CODE - pBind
-source /etc/environment
+source /etc/pBind/environment
 pBind welcome
 "
-mkdir $PBIND_PATH/.bak
-cp enviroment $PBIND_PATH/.bak/
-cp tech_p $PBIND_PATH/.bak/
-cp root_p $PBIND_PATH/.bak/
+
+#create enviroment
+title "Setup enviroment"
+mkdir -p $PBIND_PATH/.bak
+mkdir -p $(dirname $enviroment)
+if [[ ! -f $enviroment ]];then
+	touch $enviroment
+	info "$enviroment created"
+fi
+success "complete"
+
+#make backups
+title "Backup hot files"
+for el in "${backups[@]}";do
+	cp $el $PBIND_PATH/.bak/
+	success "$el bk created"
+done
+success "complete"
 
 #Setup PBIND_PATH and pBind command
+title "Setup Variables and commands"
 echo -e "\n#INJECTED CODE - pBind
 PBIND_PATH=$PBIND_PATH
 function pBind  {

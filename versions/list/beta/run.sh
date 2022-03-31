@@ -1,5 +1,5 @@
 #!/bin/bash
-source /etc/environment
+source /etc/pBind/environment
 #source "${PBIND_PATH}/utils/includes/functions.sh"
 
 if (($1 == "start" || $1 == "run" ));then

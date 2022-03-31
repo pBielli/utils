@@ -1,5 +1,5 @@
 # Configure App Creator
-source /etc/environment
+source /etc/pBind/environment
 
 APP_NAME=$1
 APPs_DIR="$(dirname $PBIND_PATH)"

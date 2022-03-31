@@ -1,5 +1,5 @@
 # Configure Startup Services File
-source /etc/environment
+source /etc/pBind/environment
 source "${PBIND_PATH}/utils/includes/functions.sh"
 
 if (($1 == "STOP" || $1 == "stop" ||$1 == "kill" ||$1 == "-s"));then
