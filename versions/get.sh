@@ -72,7 +72,7 @@ success "\nLoading..."
 
 #Preparing the list of versions
 all_versions=""
-versions=("1.0" "beta")
+versions=("1.0" "1.1_beta")
 first_i=3
 last_i=$(($first_i+${#versions[@]}-1))
 for index in "${!versions[@]}"
