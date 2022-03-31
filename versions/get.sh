@@ -1,4 +1,4 @@
-#!/bin/bash                                          
+#!/bin/bash
 #COLORS
 # Reset
 NC='\033[0m'       # Text Reset
@@ -65,7 +65,7 @@ function getInfoFile () {
 curl -s "https://raw.githubusercontent.com/pBielli/pBind/master/versions/list/${1}/info.json"
 }
 
-clear
+#clear
 success "\nLoading..."
 #apt-get install jq -y
 #apt-get install subversion -y
@@ -74,7 +74,7 @@ success "\nLoading..."
 all_versions=""
 versions=("1.0" "beta")
 first_i=3
-last_i=$(($first_i+${#versions[@]}))
+last_i=$(($first_i+${#versions[@]}-1))
 for index in "${!versions[@]}"
 do
         info=$( getInfoFile "${versions[index]}" )
@@ -91,10 +91,6 @@ stable=$(getVersion stable)
 beta=$(getVersion beta)
 #latest=$(getVersion latest)
 
-
-while [[ ! $CH =~ ^[0-$last_i]{1} ]]
-do
-clear
 echo
 title "VERSION"
 list_el 0 "input"
@@ -102,24 +98,30 @@ list_el 1 "stable:${stable}"
 list_el 2 "beta:  ${beta}"
 echo -e "${all_versions}"
 hr
-
-CH=$(prompt "selection")
-
-if [ $CH == 0 ];then
-	VERSION=$(prompt "version")
-fi
-hr
+flag=1
+while [ $flag == 1 ]
+do
+        CH=$(prompt "selection")
+        if [[ ! $CH =~ ^[0-$last_i]{1} ]];then
+                error "wrong input"
+        else
+                flag=0
+        fi
+        if [ $CH == 0 ];then
+                VERSION=$(prompt "version")
+        fi
 done
+hr
 
 if [ $CH == 1 ];then
-	VERSION="$stable"
+        VERSION=$stable
 fi
 if [ $CH == 2 ];then
-	VERSION="$beta"
+        VERSION=$beta
 fi
-if (($CH >= $first_i && $CH < $last_i));then
+if (($CH >= $first_i && $CH <= $last_i));then
  i=$(($CH-$first_i))
- VERSION="${versions[i]}"
+ VERSION=${versions[i]}
 fi
 
 success "selected version: v${VERSION}"
@@ -135,16 +137,34 @@ svn export "https://github.com/pBielli/pBind/trunk/versions/list/$VERSION" "${PB
 if ! [ -d "${PBIND}" ];then
 exit 1
 fi
-while ! [[ $ACTION -eq "u" || $ACTION -eq "i" ]]
-do 
-ACTION=$(prompt "install or upgrade?(i/u)")
+
+ACTION=0
+flag=1
+while [ $flag == 1 ]
+do
+        ACTION=$(prompt "install or upgrade?(i/u)")
+
+        if [[ "$ACTION" == "u" || "$ACTION" == "i" ]];then
+                flag=0
+        else
+                error "wrong input"
+        fi
+
 done
 
 
-if [ $ACTION == "i" ];then
+if [[ "$ACTION" == "i" ]];then
 #unset, so install it completelly
+        OPERATION="Installation"
+        warning "Starting installation..."
         bash $(find "pBind/" -name "install.sh")
         bash $(find "pBind/" -name "setup.sh")
+else
+        OPERATION=Update
+        warning "Updating"
 fi
 
-bash $(find "pBind/" -name "purge.sh")                           
+bash $(find "pBind/" -name "purge.sh")
+
+success "${OPERATION} completed"
+
