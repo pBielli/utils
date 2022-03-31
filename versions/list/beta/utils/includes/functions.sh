@@ -15,18 +15,28 @@ function title () {
 echo -e " [ ${BGreen}${1}${NC} ] ${BGray}${2}${NC} $3"
 }
 function success () {
-echo -e " [V][ ${BGreen}success${NC} ] ${1}"
+echo -e " [ ${BGreen}success${NC} ] ${1}"
 }
 function error () {
-echo -e " [X][ ${BRed}error${NC} ] ${1}"
+echo -e " [ ${BRed}error${NC} ] ${1}"
 }
 function warning () {
-echo -e " [!][ ${BOrange}warning${NC} ] ${1}"
+echo -e " [ ${BYellow}warning${NC} ] ${1}"
 }
 function list_el () {
 echo -e "  [$1] ${BWhite}${2}${NC}"
 }
+function base_echo () {
+echo -e "  ${2}${1}${NC} $3"
+}
+function setColor () {
+echo -e "${1}"
+}
+function stopColor () {
+echo -e "${NC}"
+}
+
 function prompt () {
-read -p "  ${BWhite}${1}${NC}: " INPUT
+read -p "  ${1}: " INPUT
 echo $INPUT
 }

@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/bin/bash                                          
 #COLORS
 # Reset
 NC='\033[0m'       # Text Reset
@@ -25,6 +24,7 @@ BCyan='\033[1;36m'        # Cyan
 BWhite='\033[1;37m'       # White
 
 #Graphic Functions
+
 function hr () {
 echo -e "  ______________________\n"
 }
@@ -32,16 +32,25 @@ function title () {
 echo -e " [ ${BGreen}${1}${NC} ] ${BGray}${2}${NC} $3"
 }
 function success () {
-echo -e " [V][ ${BGreen}success${NC} ] ${1}"
+echo -e " [ ${BGreen}success${NC} ] ${1}"
 }
 function error () {
-echo -e " [X][ ${BRed}error${NC} ] ${1}"
+echo -e " [ ${BRed}error${NC} ] ${1}"
 }
 function warning () {
-echo -e " [!][ ${BOrange}warning${NC} ] ${1}"
+echo -e " [ ${BYellow}warning${NC} ] ${1}"
 }
 function list_el () {
 echo -e "  [$1] ${BWhite}${2}${NC}"
+}
+function base_echo () {
+echo -e "  ${2}${1}${NC} $3"
+}
+function setColor () {
+echo -e "${1}"
+}
+function stopColor () {
+echo -e "${NC}"
 }
 function prompt () {
 read -p "  ${1}: " INPUT
@@ -118,7 +127,7 @@ success "selected version: v${VERSION}"
 source /etc/environment
 PBIND=/home/server/pBind
 
-print_base "proceed to "
+warning "proceed to setup enviroment"
 
 rm -r -f "${PBIND}"
 #else, or after it, download the repo
@@ -126,7 +135,7 @@ svn export "https://github.com/pBielli/pBind/trunk/versions/list/$VERSION" "${PB
 if ! [ -d "${PBIND}" ];then
 exit 1
 fi
-while (( $ACTION != "u" || $ACTION != "i" )) 
+while ! [[ $ACTION -eq "u" || $ACTION -eq "i" ]]
 do 
 ACTION=$(prompt "install or upgrade?(i/u)")
 done
