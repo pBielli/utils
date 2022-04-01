@@ -6,7 +6,7 @@ enviroment=/etc/pBind/environment
 tech_p=/home/tech/.profile
 root_p=/root/.profile
 PBIND_PATH=/home/server/pBind
-backups=( ssh_config ftp_config tech_p root_p )
+backups=( $ssh_config $ftp_config $tech_p $root_p )
 FTP_PORT=4021
 SSH_PORT=4022
 
@@ -54,7 +54,7 @@ success "complete"
 #make backups
 title "Backup hot files"
 for el in "${backups[@]}";do
-	cp $el $PBIND_PATH/.bak/
+	cp $el "$PBIND_PATH/.bak/"
 	success "$el bk created"
 done
 success "complete"
