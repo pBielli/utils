@@ -1,4 +1,10 @@
 # utils
+
+# imgs
+<pre>
+https://raw.githubusercontent.com/pBielli/utils/main/imgs/FOLDER/FILE
+</pre>
+
 ## anim
 pBielli_loading.gif             |  pBind_light.gif
 :-------------------------:|:-------------------------:
