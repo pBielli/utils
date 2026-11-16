@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 491 491" width="491" height="491" role="img" aria-label="pBielli">
+  <!-- pBielli monogram in the Hive style: the original composition (mirrored P + vertical BIELLI) inside the Hive hexagon -->
+  <path d="M245.5 2 456.6 124v243L245.5 489 34.4 367V124z" fill="#F5B301"/>
+  <path d="M245.5 26 435.8 136v219L245.5 465 55.2 355V136z" fill="#0B1220"/>
+  <g transform="translate(245.5 245.5) scale(0.86) translate(-245.5 -245.5)">
+  <path transform="translate(-44 -42)" d="M255.47,341.93H197.11q-32.87,0-54.26-27.42T121.46,242.9q0-38.76,19.77-67.25t60.67-28.48h95.67V469.79h-42.1Zm0-146.54h-46q-24.81,0-34.31,14.18t-9.5,34q0,22,10.27,35.21t29.78,13.24h49.8Z" fill="#F8FAFC"/>
+  <text transform="translate(268 106) rotate(90) scale(0.86 1)" font-family="Franklin Gothic Medium, FranklinGothic-Medium, Arial Narrow, DejaVu Sans Condensed, sans-serif" font-weight="700" font-size="104" letter-spacing="1" fill="#F8FAFC">BIELLI</text>
+  </g>
+  <path d="M245.5 26 435.8 136v219L245.5 465 55.2 355V136z" fill="none" stroke="#C98A00" stroke-width="4"/>
+</svg>
