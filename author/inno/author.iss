@@ -13,7 +13,7 @@
 #define AuthorName "pBielli"
 #define AuthorUrl "https://pbielli.com"
 #define AuthorGithub "https://github.com/pBielli"
-#define AuthorCopyright "© pBielli"
+#define AuthorCopyright "(c) pBielli"
 #define AuthorSmallImages "author\pbielli-small-55.bmp,author\pbielli-small-110.bmp"
 ; Text for the welcome page, e.g. WelcomeLabel2=...%n%n{#AuthorLine}
-#define AuthorLine "by " + AuthorName + " · " + AuthorUrl
+#define AuthorLine "by " + AuthorName + " - " + AuthorUrl
