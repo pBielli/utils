@@ -21,3 +21,16 @@ Hive-amber hairline. Colours: amber `#F5B301`, deep amber `#C98A00`, ink `#0B122
 |:---:|:---:|:---:|
 | <img height="120" src="https://raw.githubusercontent.com/pBielli/utils/main/imgs/anim/pBielli_loading.gif"/> | <img height="120" src="https://raw.githubusercontent.com/pBielli/utils/main/imgs/anim/pBielli_hive_loading.gif"/> | <img height="120" src="https://raw.githubusercontent.com/pBielli/utils/main/imgs/anim/pBielli_hive_spin.gif"/> |
 | `anim/pBielli_loading.gif` | `anim/pBielli_hive_loading.gif` — hexagon draws, amber line, then the mark | `anim/pBielli_hive_spin.gif` — amber segment runs around the hexagon |
+
+## Author tag
+
+`author/` — the same author identity in every app:
+
+| file | use |
+|---|---|
+| `author/author.json` | name, URL (pbielli.com), GitHub, copyright, logo URLs — read by apps for "by pBielli" links |
+| `author/pbielli-{32,64,128,256}.png` | logo bitmaps (Hive style, light) |
+| `author/inno/author.iss` + `pbielli-small-{55,110}.bmp` | Inno Setup include: publisher, URLs, copyright and the small corner logo |
+
+The app keeps its own logo as the main picture; the author logo stays small in the corner.
+

@@ -1,0 +1,12 @@
+{
+  "name": "pBielli",
+  "fullName": "Patrizio Bielli",
+  "url": "https://pbielli.com",
+  "github": "https://github.com/pBielli",
+  "copyright": "© pBielli",
+  "logo": {
+    "svg": "https://raw.githubusercontent.com/pBielli/utils/main/imgs/logos/pBielli_hive_light.svg",
+    "svgDark": "https://raw.githubusercontent.com/pBielli/utils/main/imgs/logos/pBielli_hive_dark.svg",
+    "png": "https://raw.githubusercontent.com/pBielli/utils/main/author/pbielli-128.png"
+  }
+}
