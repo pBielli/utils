@@ -34,3 +34,6 @@ Hive-amber hairline. Colours: amber `#F5B301`, deep amber `#C98A00`, ink `#0B122
 
 The app keeps its own logo as the main picture; the author logo stays small in the corner.
 
+## pbuild
+
+`pbuild/` — `pbuild owner/repo` builds any app from its `build.json` on Windows (tools via winget, steps, artifacts). See `pbuild/README.md`.
